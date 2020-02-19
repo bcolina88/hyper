@@ -29,6 +29,7 @@ class UpdateLocationMutation extends Mutation {
             'id' => ['type' => Type::nonNull(Type::int())],
             'x' => [ 'type' => Type::string()],
             'y' => [ 'type' => Type::string()],
+            'address' => [ 'type' => Type::string()],
             'name' => [ 'type' => Type::string()],
             'percentagePriceIncrease' => [ 'type' => Type::string()],
             'durationIncrease' => [ 'type' => Type::string()],
@@ -61,6 +62,7 @@ class UpdateLocationMutation extends Mutation {
         $Location->update([
             'x'                         => $args['x'],
             'y'                         => $args['y'],
+            'address'                   => $args['address'],
             'name'                      => $args['name'],
             'percentagePriceIncrease'   => $args['percentagePriceIncrease'],
             'durationIncrease'          => $args['durationIncrease'],

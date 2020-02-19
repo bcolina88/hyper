@@ -7,6 +7,8 @@ use JWTAuth;
 use Carbon\Carbon;
 use DB;
 use App\Models\Ride;
+use App\Models\RiderAddresses;
+use App\Models\Location;
 use Folklore\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ResolveInfo;
@@ -99,8 +101,8 @@ class CreateRideMutation extends Mutation
             'totalPrice' => $args['totalPrice'],
             'pendingPayment' =>  $args['totalPrice'],
             'totalPaid'      => 0,
-            'pickupTime'  => Carbon::parse($args['pickupTime']),
-            'dropoffTime'  => Carbon::parse($args['dropoffTime']),
+            'pickupTime'  =>$args['pickupTime'],
+            'dropoffTime'  => $args['dropoffTime'],
             'duration' => $args['duration'],
             'distance' => $args['distance'],
             'pets'  => $args['pets'],
@@ -117,6 +119,17 @@ class CreateRideMutation extends Mutation
         ];
 
         $ride = Ride::create($data);
+
+        //$location = Location::where('x',$args['xDest'])->where('y',$args['yDest'])->get();
+
+        /*
+        $data1 = [
+            'ride_id' => $ride->id,
+            'location_id' => $location->id
+        ];
+
+        $RiderAddresses = RiderAddresses::create($data1);*/
+
         return $ride;
 
     }

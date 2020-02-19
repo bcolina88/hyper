@@ -4,17 +4,21 @@ namespace App\GraphQL\Type;
 
 //use GraphQL\Type\Definition\Type;
 //use Rebing\GraphQL\Support\Type as GraphQLType;
+
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as BaseType;
 use GraphQL;
-use App\Models\Location;
+use App\Models\PaymentMethod;
+use App\Models\Bank;
 
-class LocationType extends BaseType
+
+
+class PaymentMethodType extends BaseType
 {
     protected $attributes = [
-        'name' => 'Location',
-        'description' => 'Location type',
-        'model'       => Location::class,
+        'name' => 'PaymentMethod',
+        'description' => 'A PaymentMethod',
+        'model'       => PaymentMethod::class,
     ];
 
     public function fields()
@@ -23,26 +27,20 @@ class LocationType extends BaseType
             'id' => [
                 'type' => Type::nonNull(Type::int())
             ],
+            'method' => [
+                'type' => Type::nonNull(Type::string())
+            ],
             'name' => [
                 'type' => Type::nonNull(Type::string())
             ],
-            'x' => [
-                'type' => Type::nonNull(Type::string())
+            'rif' => [
+                'type' => Type::string()
             ],
-            'y' => [
-                'type' => Type::nonNull(Type::string())
+            'phone' => [
+                'type' => Type::string()
             ],
-            'address' => [
-                'type' => Type::nonNull(Type::string())
-            ],
-            'percentagePriceIncrease' => [
-                'type' => Type::nonNull(Type::string())
-            ],
-            'durationIncrease' => [
-                'type' => Type::nonNull(Type::string())
-            ],
-            'increaseStartDate' => [
-                'type' => Type::nonNull(Type::string())
+            'bank' => [
+                'type' => GraphQL::type('Bank')
             ],
             'created_at' => [
                 'type' => Type::nonNull(Type::string())

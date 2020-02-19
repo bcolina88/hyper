@@ -19,6 +19,7 @@ class CreateLocationsTable extends Migration
             $table->double('x', 10, 6);
             $table->double('y', 10, 6);
             $table->string('name');
+            $table->string('address');
             $table->string('percentagePriceIncrease');
             $table->string('durationIncrease');
             $table->string('increaseStartDate');

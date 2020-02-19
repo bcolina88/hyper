@@ -33,6 +33,9 @@ class CreateLocationMutation extends Mutation
             'y' => [
                 'type' => Type::string()
             ],
+            'address' => [
+                'type' => Type::string()
+            ],
             'name' => [
                 'type' => Type::string()
             ],
@@ -62,6 +65,7 @@ class CreateLocationMutation extends Mutation
             'x'                         => $args['x'],
             'y'                         => $args['y'],
             'name'                      => $args['name'],
+            'address'                   => $args['address'],
             'percentagePriceIncrease'   => $args['percentagePriceIncrease'],
             'durationIncrease'          => $args['durationIncrease'],
             'increaseStartDate'         => $args['increaseStartDate'],

@@ -9,7 +9,9 @@ use App\Models\User;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Query;
 use GraphQL\Type\Definition\ResolveInfo;
-
+use App\Models\Rider;
+use App\Models\Driver;
+use DB;
 
 class GetCurrentQuery extends Query {
 
@@ -20,7 +22,7 @@ class GetCurrentQuery extends Query {
 
     public function type()
     {
-        return GraphQL::type('User');
+        return GraphQL::type('GetCurrent');
     }
 
     public function args()
@@ -44,6 +46,13 @@ class GetCurrentQuery extends Query {
 
         
         $user = JWTAuth::setToken($args['token'])->toUser();
+
+        $rider = Rider::where('user_id',$user->id)->first();
+        $driver = Driver::where('user_id',$user->id)->first();
+
+        $user['rider']=$rider;
+        $user['driver']=$driver;
+
         return $user;
     }
 

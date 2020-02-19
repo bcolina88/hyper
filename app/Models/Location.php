@@ -17,7 +17,7 @@ class Location extends Model
 
 
     protected $fillable = [
-       'x','y','percentagePriceIncrease','durationIncrease','increaseStartDate','name', 'created_at','updated_at'
+       'x','y','address','percentagePriceIncrease','durationIncrease','increaseStartDate','name', 'created_at','updated_at'
     ];
 
 }
