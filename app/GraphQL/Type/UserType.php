@@ -46,6 +46,9 @@ class UserType extends BaseType
             'fullName' => [
                 'type' => Type::string()
             ],
+            'profile_picture' => [
+                'type' => Type::string()
+            ],
             'role' => [
                 'type' => Type::nonNull(GraphQL::type('Role'))
             ],

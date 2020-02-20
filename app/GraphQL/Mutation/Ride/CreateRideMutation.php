@@ -46,6 +46,9 @@ class CreateRideMutation extends Mutation
             'totalPrice' => [
                 'type' => Type::string(),
             ],
+            'luggage' => [
+                'type' =>  Type::string()
+            ],
             'dropoffTime' => [
                 'type' => Type::string(),
             ],
@@ -106,6 +109,7 @@ class CreateRideMutation extends Mutation
             'duration' => $args['duration'],
             'distance' => $args['distance'],
             'pets'  => $args['pets'],
+            'luggage' => $args['luggage'],
             'pickupAddr' => $args['pickupAddr'],
             'destAddr' => $args['destAddr'],
             'note' => $args['note'],

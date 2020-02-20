@@ -45,6 +45,9 @@ class GetCurrentType extends BaseType
 
                 'type' => Type::string()
             ],
+            'profile_picture' => [
+                'type' => Type::string()
+            ],
             'fullName' => [
                 'type' => Type::string()
             ],

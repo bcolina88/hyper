@@ -83,7 +83,8 @@ class CreateUserMutation extends Mutation
             'birthDate'       => $args['birthDate'],
             'active'          => 1,
             'username'        => $args['username'],
-            'role_id'         => $args['role']
+            'role_id'         => $args['role'],
+            'profile_picture' => '',
         ];
 
         $user = User::create($data);

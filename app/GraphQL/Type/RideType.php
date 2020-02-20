@@ -63,6 +63,9 @@ class RideType extends BaseType
             'pets' => [
                 'type' =>  Type::string()
             ],
+            'luggage' => [
+                'type' =>  Type::string()
+            ],
             'pickupAddr' => [
                 'type' =>  Type::string()
             ],

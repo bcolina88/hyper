@@ -78,6 +78,7 @@ class CreateRiderMutation extends Mutation
             'password' => bcrypt($args['password']),
             'active'   => 1,
             'role_id'  => 4,
+            'profile_picture'=> '',
         ]);
 
         $rider = Rider::create([

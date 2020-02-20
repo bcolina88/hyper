@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
         $user = factory(User::class, 48)->create([
             'password' => bcrypt('secret'),
             'active' => 1,
+            'profile_picture'=>'',
             'role_id' =>function() {
                 return App\Models\Role::inRandomOrder()->first()->id;
             }

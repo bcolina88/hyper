@@ -17,7 +17,7 @@ class Ride extends Model
 
 
     protected $fillable = [
-        'totalPaid','pendingPayment','totalPrice','distance','xOrig','yOrig','xDest','yDest','pickupTime', 'dropoffTime', 'rider_id', 'driver_id', 'car_id', 'duration', 'pickupAddr', 'destAddr', 'note', 'travellers', 'status', 'payment','created_at','updated_at','pets'];
+        'totalPaid','pendingPayment','totalPrice','distance','xOrig','yOrig','xDest','yDest','pickupTime', 'dropoffTime', 'rider_id', 'driver_id', 'car_id', 'duration', 'pickupAddr', 'destAddr', 'note', 'travellers', 'status', 'payment','created_at','updated_at','pets','luggage'];
 
      /**
      * @return void

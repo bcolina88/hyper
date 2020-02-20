@@ -76,6 +76,7 @@ class CreateDriverMutation extends Mutation
             'password' => bcrypt($args['password']),
             'active'   => 1,
             'role_id'  => 3,
+            'profile_picture'=> '',
         ]);
 
         $driver = Driver::create([

@@ -26,6 +26,9 @@ class CreateRidesTable extends Migration
             $table->string('dropoffTime')->nullable();
             $table->enum('pets', ['doc','cat','other'])->nullable();
             $table->integer('duration')->nullable();
+
+      
+            $table->enum('luggage', ['small','medium','large'])->nullable();
             $table->string('pickupAddr')->nullable();
             $table->string('destAddr')->nullable();
             $table->text('note')->nullable();
