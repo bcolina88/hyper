@@ -158,6 +158,7 @@ return [
 
                 'activeServices' => App\GraphQL\Query\ActiveServicesQuery::class,
                 'lastTrips' => App\GraphQL\Query\LastTripsQuery::class,
+                'driverDetails' => App\GraphQL\Query\DriverDetailsQuery::class,
 
             ],
             'mutation' => [

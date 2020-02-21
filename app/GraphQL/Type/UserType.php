@@ -43,6 +43,9 @@ class UserType extends BaseType
 
                 'type' => Type::string()
             ],
+            'age' => [
+                'type' => Type::int()
+            ],
             'fullName' => [
                 'type' => Type::string()
             ],

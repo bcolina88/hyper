@@ -22,10 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('fullName');
             $table->string('dni')->unique();
             $table->string('birthDate');
+            $table->integer('age');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('profile_picture');
             $table->boolean('active');
+
             $table->rememberToken();
             $table->integer('role_id')->unsigned();
 

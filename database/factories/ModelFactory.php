@@ -22,6 +22,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'dni'   => $faker->randomNumber($nbDigits = 8, $strict = false),
         'username' => $faker->username,
         'lastName' => $faker->lastName,
+        'age' => $faker->randomNumber($nbDigits = 2, $strict = false),
         'fullName' => $faker->firstNameMale.' '.$faker->lastName,
         'email' => $faker->unique()->safeEmail,
         'birthDate' => $faker->date,

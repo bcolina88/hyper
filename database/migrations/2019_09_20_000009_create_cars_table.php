@@ -47,7 +47,7 @@ class CreateCarsTable extends Migration
 
             $table->enum('rubbersState', ['good', 'regular', 'wornOut'])->nullable();
 
-            $table->string('vehicleStatus');
+            $table->enum('vehicleStatus', [ 'good' ,'regular' ,'bad'])->nullable();
             $table->string('travelOtherStates');
             $table->string('photos')->nullable();
 
