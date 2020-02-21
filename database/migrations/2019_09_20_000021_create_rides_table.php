@@ -24,7 +24,7 @@ class CreateRidesTable extends Migration
             $table->double('totalPaid', 8, 2);
             $table->string('pickupTime')->nullable();
             $table->string('dropoffTime')->nullable();
-            $table->enum('pets', ['doc','cat','other'])->nullable();
+            $table->enum('pets', ['dog','cat','other'])->nullable();
             $table->integer('duration')->nullable();
 
       
