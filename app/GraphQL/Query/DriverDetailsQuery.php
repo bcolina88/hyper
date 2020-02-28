@@ -45,7 +45,7 @@ class DriverDetailsQuery extends Query
 
 
         $DriverHasCar = DriverHasCar::where('driver_id',$args['driverId'])->first();
-        $photos = Upload::where('car_id',1)->get();
+        $photos = Upload::where('car_id',$DriverHasCar->car_id)->get();
 
         $DriverHasCar->car['photos'] = $photos;
 
