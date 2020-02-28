@@ -17,18 +17,10 @@ class PaymentMethod extends Model
 
 
     protected $fillable = [
-        'method','name','rif','phone','active','bank_id','created_at', 'updated_at'
+        'method','name','rif','phone','active','created_at', 'updated_at'
     ];
 
 
-        /**
-     * Payment who owns a bank.
-     *
-     * @return void
-     */
-    public function bank()
-    {
-        return $this->belongsTo('App\Models\Bank','bank_id','id');
-    }
+     
 
 }

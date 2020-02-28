@@ -17,7 +17,26 @@ class Rating extends Model
 
 
     protected $fillable = [
-        'type','typeId','question1','assessment1','question2','assessment2', 'question3','assessment3','observations','created_at','updated_at','total'
+        'assessmentDriver','rider_id','driver_id','assessment1','assessment2','assessment3','observations','created_at','updated_at','total'
     ];
+
+         /**
+     * @return void
+    */
+    public function rider()
+    {
+
+        return $this->belongsTo('App\Models\Rider','rider_id','id');
+    }
+
+
+     /**
+     * @return void
+    */
+    public function driver()
+    {
+
+        return $this->belongsTo('App\Models\Driver','driver_id','id');
+    }
 
 }

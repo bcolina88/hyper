@@ -17,7 +17,7 @@ class Bank extends Model
 
 
     protected $fillable = [
-        'name', 'created_at','updated_at','currency_id'
+        'name', 'created_at','updated_at','currency_id','code'
     ];
 
     

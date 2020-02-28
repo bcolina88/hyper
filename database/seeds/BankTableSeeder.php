@@ -34,21 +34,25 @@ class BankTableSeeder extends Seeder
         DB::table('banks')->insert([[
             'name' => "Oficina",
             'currency_id' => 2,
+            'code' => "-",
             'created_at' => new DateTime,
             'updated_at' => new DateTime   
         ],[
             'name' => "BOFA",
             'currency_id' => 1,
+            'code' => "-",
             'created_at' => new DateTime,
             'updated_at' => new DateTime   
         ],[
             'name' => "Banesco",
             'currency_id' => 1,
+            'code' => "0134",
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         ],[
             'name' => "Chase Bank",
             'currency_id' => 1,
+            'code' => "-",
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         ]]);
@@ -73,7 +77,6 @@ class BankTableSeeder extends Seeder
             'rif' => "R-3425467578858",
             'phone' => "04167890678",
             'active'=> 1,
-            'bank_id' => 1,
             'created_at' => new DateTime,
             'updated_at' => new DateTime   
         ],[
@@ -82,7 +85,6 @@ class BankTableSeeder extends Seeder
             'rif' => "R-3425467578858",
             'phone' => "-",
             'active'=> 1,
-            'bank_id' => 1,
             'created_at' => new DateTime,
             'updated_at' => new DateTime   
         ]]);

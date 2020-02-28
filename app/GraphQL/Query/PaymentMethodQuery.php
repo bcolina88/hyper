@@ -2,33 +2,30 @@
 
 namespace App\GraphQL\Query;
 
-use GraphQL;
-use JWTAuth;
-use App\Models\Car;
-use App\Models\Driver;
-use App\Models\DriverHasCar;
-use App\Models\Upload;
 use Folklore\GraphQL\Support\Query;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
+use GraphQL;
+use App\Models\PaymentMethod;
+use JWTAuth;
 
-class DriverDetailsQuery extends Query
+class PaymentMethodQuery extends Query
 {
     protected $attributes = [
-        'name' => 'driverDetails',
-        'description' => 'Driver Details.'
+        'name' => 'paymentMethodByID',
+        'description' => 'Find an PaymentMethod.'
     ];
 
     public function type()
     {
-        return GraphQL::type('DriverHasCarImage');
+        return GraphQL::type('PaymentMethod');
     }
 
     public function args()
     {
         return [
-            'driverId' => [
-                'name' => 'driverId',
+            'id' => [
+                'name' => 'id',
                 'type' => Type::nonNull(Type::int())
             ]
         ];
@@ -36,6 +33,7 @@ class DriverDetailsQuery extends Query
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
+
         /*try {
             $this->auth = JWTAuth::parseToken()->authenticate();
         } catch (\Exception $e) {
@@ -43,15 +41,7 @@ class DriverDetailsQuery extends Query
             throw new \Exception("Unauthorized", 403);
         }*/
 
-
-        $DriverHasCar = DriverHasCar::where('driver_id',$args['driverId'])->first();
-        $photos = Upload::where('car_id',1)->get();
-
-        $DriverHasCar->car['photos'] = $photos;
-
-        
-        return $DriverHasCar;
-
+        return PaymentMethod::find($args['id']);
 
     }
 }

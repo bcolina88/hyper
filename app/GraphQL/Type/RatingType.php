@@ -24,26 +24,11 @@ class RatingType extends BaseType
             'id' => [
                 'type' => Type::nonNull(Type::int())
             ],
-            'type' => [
-                'type' => Type::string()
-            ],
-            'typeId' => [
-                'type' => Type::int()
-            ],
-            'question1' => [
-                'type' => Type::string()
-            ],
             'assessment1' => [
                 'type' => Type::int()
             ],
-            'question2' => [
-                'type' => Type::string()
-            ],
             'assessment2' => [
                 'type' => Type::int()
-            ],
-            'question3' => [
-                'type' => Type::string()
             ],
             'assessment3' => [
                 'type' => Type::int()
@@ -53,6 +38,15 @@ class RatingType extends BaseType
             ],
             'total' => [
                 'type' => Type::string()
+            ],
+            'assessmentDriver' => [
+                'type' => Type::string()
+            ],
+            'rider' => [
+                'type' =>  GraphQL::type('Rider')
+            ],
+            'driver' => [
+                'type' =>  GraphQL::type('Driver')
             ],
             'created_at' => [
                 'type' => Type::nonNull(Type::string())

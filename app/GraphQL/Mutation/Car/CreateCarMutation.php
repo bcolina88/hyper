@@ -88,7 +88,7 @@ class CreateCarMutation extends Mutation
             'armored' => [
                 'type' => Type::boolean()
             ],
-             'lateralMirrors' => [
+            'lateralMirrors' => [
                 'type' => Type::boolean()
             ],
             'rearViewMirror' => [

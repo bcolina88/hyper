@@ -40,9 +40,6 @@ class CreatePaymentMethodMutation extends Mutation
             ],
             'phone' => [
                 'type' => Type::string()
-            ],
-            'bank' => [
-                'type' => Type::int()
             ]
         ];
     }
@@ -62,7 +59,6 @@ class CreatePaymentMethodMutation extends Mutation
             'name'      => $args['name'],
             'rif'       => $args['rif'],
             'phone'     => $args['phone'],
-            'bank_id'   => $args['bank'],
             'active'    => 1
 
         ];

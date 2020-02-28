@@ -49,4 +49,11 @@ Route::group(['prefix'=>'api'],function(){
 
   Route::post('profile', 'ProfileController@updateProfilePicture');
 
+
+  Route::get('/', 'UploadImagesController@create');
+  Route::post('/images-save', 'UploadImagesController@store');
+  Route::post('/images-delete', 'UploadImagesController@destroy');
+  Route::get('/images-show', 'UploadImagesController@index');
+
+
 });

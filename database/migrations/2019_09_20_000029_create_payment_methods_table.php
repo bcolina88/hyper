@@ -20,11 +20,7 @@ class CreatePaymentMethodsTable extends Migration
             $table->text('rif')->nullable();
             $table->text('phone')->nullable();
             $table->boolean('active');
-            $table->integer('bank_id')->unsigned()->nullable();
  
-            $table->foreign('bank_id')->references('id')->on('banks')
-            ->onUpdate('cascade')
-            ->onDetete('cascade');
 
             $table->timestamps();
 

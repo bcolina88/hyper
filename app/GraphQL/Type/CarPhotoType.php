@@ -11,12 +11,11 @@ use App\Models\Car;
 use App\Models\ModelCar;
 use App\Models\TypeCar;
 
-class CarType extends BaseType
+class CarPhotoType extends BaseType
 {
     protected $attributes = [
-        'name' => 'Car',
-        'description' => 'A Car',
-        'model'       => Car::class,
+        'name' => 'CarPhoto',
+        'description' => 'A Car'
     ];
 
     public function fields()
@@ -58,6 +57,9 @@ class CarType extends BaseType
             'travelOtherStates' => [
                 'type' => Type::nonNull(Type::string())
             ],
+            'photos' => [
+                'type' => Type::nonNull(Type::string())
+            ],
             'plateNumber' => [
                 'type' => Type::nonNull(Type::string())
             ],
@@ -96,6 +98,9 @@ class CarType extends BaseType
             ],
             'rubbersState' => [
                 'type' => Type::nonNull(Type::string())
+            ],
+            'photos' => [
+                'type' => Type::listOf(GraphQL::type('UploadCar'))
             ],
             'model' => [
                 'type' => GraphQL::type('ModelCar')

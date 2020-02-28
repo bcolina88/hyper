@@ -17,7 +17,7 @@ class Car extends Model
 
 
     protected $fillable = [
-         'name', 'active','created_at','updated_at', 'type', 'color', 'airConditioning', 'confort', 'upholstery', 'paintState', 'year', 'registrationDate', 'lastCheckDate', 'armored', 'status', 'armoredLevel', 'plateNumber', 'circulationCertificate', 'propertyTitle', 'serialCar', 'lateralMirrors', 'rearViewMirror', 'frontLights', 'taillights', 'blinkingLights', 'rubbersState', 'vehicleStatus', 'travelOtherStates', 'photos','model_id','typeCar_id'];
+         'name', 'active','created_at','updated_at', 'type', 'color', 'airConditioning', 'confort', 'upholstery', 'paintState', 'year', 'registrationDate', 'lastCheckDate', 'armored', 'status', 'armoredLevel', 'plateNumber', 'circulationCertificate', 'propertyTitle', 'serialCar', 'lateralMirrors', 'rearViewMirror', 'frontLights', 'taillights', 'blinkingLights', 'rubbersState', 'vehicleStatus', 'travelOtherStates','model_id','typeCar_id'];
 
 
     public function model()

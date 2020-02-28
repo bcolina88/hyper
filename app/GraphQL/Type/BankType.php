@@ -28,6 +28,9 @@ class BankType extends BaseType
             'name' => [
                 'type' => Type::nonNull(Type::string())
             ],
+            'code' => [
+                'type' => Type::nonNull(Type::string())
+            ],
             'currency' => [
                 'type' => Type::nonNull(GraphQL::type('Currency'))
             ],

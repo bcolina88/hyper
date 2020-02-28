@@ -34,7 +34,7 @@ class CreateRidesTable extends Migration
             $table->text('note')->nullable();
             $table->integer('travellers')->default(1);
 
-            $table->enum('status', ['InProcess', 'Completed','Cancelled'])->nullable();
+            $table->enum('status', ['InProcess', 'Completed','Cancelled','Valued Rider','Valued Driver'])->nullable();
             $table->integer('payment')->default(0);
 
             $table->integer('distance')->nullable();

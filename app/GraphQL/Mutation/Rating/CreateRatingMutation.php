@@ -25,25 +25,13 @@ class CreateRatingMutation extends Mutation
     public function args()
     {
         return [
-            'type' => [
-                'type' => Type::string()
-            ],
-            'typeId' => [
-                'type' => Type::int()
-            ],
-            'question1' => [
+            'assessmentDriver' => [
                 'type' => Type::string()
             ],
             'assessment1' => [
                 'type' => Type::string()
             ],
-            'question2' => [
-                'type' => Type::string()
-            ],
             'assessment2' => [
-                'type' => Type::string()
-            ],
-            'question3' => [
                 'type' => Type::string()
             ],
             'assessment3' => [
@@ -51,6 +39,12 @@ class CreateRatingMutation extends Mutation
             ],
             'observations' => [
                 'type' => Type::string()
+            ],
+            'rider' => [
+                'type' =>  Type::id(),
+            ],
+            'driver' => [
+                'type' =>  Type::id(),
             ],
         ];
     }
@@ -69,16 +63,14 @@ class CreateRatingMutation extends Mutation
 
 
         $data = [
-            'type'         => $args['type'],
-            'typeId'       => $args['typeId'],
-            'question1'    => $args['question1'],
             'assessment1'  => $args['assessment1'],
-            'question2'    => $args['question2'],
             'assessment2'  => $args['assessment2'],
-            'question3'    => $args['question3'],
             'assessment3'  => $args['assessment3'],
             'observations' => $args['observations'],
+            'assessmentDriver' => $args['assessmentDriver'],
             'total'        => $total,
+            'rider_id'     => $args['rider'],
+            'driver_id'    => $args['driver'],
         ];
 
         $Rating = Rating::create($data);

@@ -4,21 +4,18 @@ namespace App\GraphQL\Type;
 
 //use GraphQL\Type\Definition\Type;
 //use Rebing\GraphQL\Support\Type as GraphQLType;
-
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as BaseType;
 use GraphQL;
-use App\Models\PaymentMethod;
-use App\Models\Bank;
+use App\Models\DriverHasCar;
+use App\Models\Driver;
+use App\Models\Car;
 
-
-
-class PaymentMethodType extends BaseType
+class DriverHasCarImageType extends BaseType
 {
     protected $attributes = [
-        'name' => 'PaymentMethod',
-        'description' => 'A PaymentMethod',
-        'model'       => PaymentMethod::class,
+        'name' => 'DriverHasCarImage',
+        'description' => 'A driverHasCarImage'
     ];
 
     public function fields()
@@ -27,17 +24,11 @@ class PaymentMethodType extends BaseType
             'id' => [
                 'type' => Type::nonNull(Type::int())
             ],
-            'method' => [
-                'type' => Type::nonNull(Type::string())
+            'car' => [
+                'type' => Type::nonNull(GraphQL::type('CarPhoto'))
             ],
-            'name' => [
-                'type' => Type::nonNull(Type::string())
-            ],
-            'rif' => [
-                'type' => Type::string()
-            ],
-            'phone' => [
-                'type' => Type::string()
+            'driver' => [
+                'type' => Type::nonNull(GraphQL::type('Driver'))
             ],
             'created_at' => [
                 'type' => Type::nonNull(Type::string())

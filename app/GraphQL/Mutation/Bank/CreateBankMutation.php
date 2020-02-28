@@ -33,7 +33,10 @@ class CreateBankMutation extends Mutation
             'currency' => [
                 'type' => Type::nonNull(Type::id()),
                 'rules' => ['required']
-            ]
+            ],
+            'code' => [
+                'type' => Type::nonNull(Type::string())
+            ],
         ];
     }
 
@@ -49,7 +52,8 @@ class CreateBankMutation extends Mutation
 
         $data = [
             'name' => $args['name'],
-            'currency_id' => $args['currency']
+            'currency_id' => $args['currency'],
+            'code' => $args['code']
         ];
 
         $bank = Bank::create($data);

@@ -49,7 +49,7 @@ class CreateCarsTable extends Migration
 
             $table->enum('vehicleStatus', [ 'good' ,'regular' ,'bad'])->nullable();
             $table->string('travelOtherStates');
-            $table->string('photos')->nullable();
+
 
 
             $table->foreign('model_id')->references('id')->on('models')

@@ -31,8 +31,8 @@ class UpdatePaymentMethodMutation extends Mutation {
             'method' => ['type' => Type::string()],
             'name' => ['type' => Type::string()],
             'rif' => ['type' => Type::string()],
-            'phone' => ['type' => Type::string()],
-            'bank' => ['type' => Type::int()]
+            'phone' => ['type' => Type::string()]
+   
 
         ];
     }
@@ -62,8 +62,7 @@ class UpdatePaymentMethodMutation extends Mutation {
             'method'    => $args['method'],
             'name'      => $args['name'],
             'rif'       => $args['rif'],
-            'phone'     => $args['phone'],
-            'bank_id'   => $args['bank']
+            'phone'     => $args['phone']
         ]);
 
         return $payment;

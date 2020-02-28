@@ -159,6 +159,18 @@ return [
                 'activeServices' => App\GraphQL\Query\ActiveServicesQuery::class,
                 'lastTrips' => App\GraphQL\Query\LastTripsQuery::class,
                 'driverDetails' => App\GraphQL\Query\DriverDetailsQuery::class,
+                'paymentMethodDetails' => App\GraphQL\Query\PaymentMethodDetailsQuery::class,
+                'activePaymentMethods' => App\GraphQL\Query\ActivePaymentMethodsQuery::class,
+
+                'paymentMethodPagination' => App\GraphQL\Query\PaymentMethodsPaginationQuery::class,
+                'paymentMethods'=> App\GraphQL\Query\PaymentMethodsQuery::class,
+                'paymentMethodByID'=> App\GraphQL\Query\PaymentMethodQuery::class,
+
+                'paymentMethodHasBankPagination' => App\GraphQL\Query\PaymentMethodHasBanksPaginationQuery::class,
+                'paymentMethodHasBanks'=> App\GraphQL\Query\PaymentMethodHasBanksQuery::class,
+                'paymentMethodHasBankByID'=> App\GraphQL\Query\PaymentMethodHasBankQuery::class,
+
+
 
             ],
             'mutation' => [
@@ -240,6 +252,10 @@ return [
                 'updatePaymentMethod' => App\GraphQL\Mutation\PaymentMethod\UpdatePaymentMethodMutation::class,
                 'blockedPaymentMethod' => App\GraphQL\Mutation\PaymentMethod\BlockedPaymentMethodMutation::class,
 
+                'createPaymentMethodHasBank' => App\GraphQL\Mutation\PaymentMethodHasBank\CreatePaymentMethodHasBankMutation::class,
+                'deletePaymentMethodHasBank' => App\GraphQL\Mutation\PaymentMethodHasBank\DeletePaymentMethodHasBankMutation::class,
+                'updatePaymentMethodHasBank' => App\GraphQL\Mutation\PaymentMethodHasBank\UpdatePaymentMethodHasBankMutation::class,
+
 
 
             ]
@@ -313,6 +329,15 @@ return [
         \App\GraphQL\Type\ActiveServiceType::class,
         \App\GraphQL\Type\PaymentMethodType::class,
         \App\GraphQL\Type\GetCurrentType::class,
+        \App\GraphQL\Type\PaymentMethodHasBankType::class,
+        \App\GraphQL\Type\PaymentMethodPaginationType::class,
+        \App\GraphQL\Type\PaymentMethodHasBankPaginationType::class,
+
+
+        \App\GraphQL\Type\UploadCarType::class,
+        \App\GraphQL\Type\CarPhotoType::class,
+        \App\GraphQL\Type\DriverHasCarImageType::class,
+
 
         /*\App\GraphQL\Type\AuthType::class,
         \App\GraphQL\Type\CountryType::class,

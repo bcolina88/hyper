@@ -28,7 +28,8 @@ class UpdateBankMutation extends Mutation {
 
             'id' => ['type' => Type::nonNull(Type::int())],
             'name' => [ 'type' => Type::string()],
-            'currency' => [ 'type' => Type::id()]
+            'currency' => [ 'type' => Type::id()],
+            'code' => [ 'type' => Type::string()]
 
         ];
     }
@@ -57,7 +58,8 @@ class UpdateBankMutation extends Mutation {
             // update bank
         $bank->update([
             'name' => $args['name'],
-            'currency_id' => $args['currency']
+            'currency_id' => $args['currency'],
+            'code' => $args['code']
         ]);
 
         return $bank;

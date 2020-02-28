@@ -4,15 +4,13 @@ namespace App\GraphQL\Query;
 
 use GraphQL;
 use JWTAuth;
-use App\Models\Car;
-use App\Models\Driver;
-use App\Models\DriverHasCar;
-use App\Models\Upload;
+use App\Models\PaymentMethod;
+use App\Models\PaymentMethodHasBank;
 use Folklore\GraphQL\Support\Query;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 
-class DriverDetailsQuery extends Query
+class PaymentMethodDetailsQuery extends Query
 {
     protected $attributes = [
         'name' => 'driverDetails',
@@ -21,18 +19,19 @@ class DriverDetailsQuery extends Query
 
     public function type()
     {
-        return GraphQL::type('DriverHasCarImage');
+        return GraphQL::type('PaymentMethodHasBank');
     }
 
     public function args()
     {
         return [
-            'driverId' => [
-                'name' => 'driverId',
+            'id' => [
+                'name' => 'id',
                 'type' => Type::nonNull(Type::int())
             ]
         ];
     }
+
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
@@ -43,14 +42,21 @@ class DriverDetailsQuery extends Query
             throw new \Exception("Unauthorized", 403);
         }*/
 
+        $bank_account =[];
 
-        $DriverHasCar = DriverHasCar::where('driver_id',$args['driverId'])->first();
-        $photos = Upload::where('car_id',1)->get();
+        $paymentMethod = PaymentMethod::where('id',$args['id'])->first();
 
-        $DriverHasCar->car['photos'] = $photos;
+        $PaymentMethodHasBank = PaymentMethodHasBank::where('paymentMethod_id',$paymentMethod->id)->get();
 
-        
-        return $DriverHasCar;
+        foreach ($PaymentMethodHasBank as $key => $value) {
+            # code...
+
+            array_push($bank_account, $value->bankAccount);
+        }
+
+        $paymentMethod['bank_account']=$bank_account;
+
+        return $paymentMethod;
 
 
     }
