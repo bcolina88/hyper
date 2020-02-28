@@ -37,6 +37,9 @@ class PaymentMethodHasBankType extends BaseType
             'phone' => [
                 'type' => Type::string()
             ],
+            'active' => [
+                'type' => Type::boolean()
+            ],
             'bank_account' => [
                 'type' => Type::listOf(GraphQL::type('BankAccount')),
             ],

@@ -39,6 +39,9 @@ class PaymentMethodType extends BaseType
             'phone' => [
                 'type' => Type::string()
             ],
+            'active' => [
+                'type' => Type::boolean()
+            ],
             'created_at' => [
                 'type' => Type::nonNull(Type::string())
             ],
