@@ -5,6 +5,7 @@ namespace App\GraphQL\Mutation\Rating;
 use GraphQL;
 use JWTAuth;
 use App\Models\Rating;
+use App\Models\RideHasRating;
 
 use Folklore\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\Type;
@@ -25,6 +26,9 @@ class CreateRatingMutation extends Mutation
     public function args()
     {
         return [
+            'ride' => [
+                'type' => Type::id()
+            ],
             'assessmentDriver' => [
                 'type' => Type::string()
             ],
@@ -40,12 +44,10 @@ class CreateRatingMutation extends Mutation
             'observations' => [
                 'type' => Type::string()
             ],
-            'rider' => [
-                'type' =>  Type::id(),
+            'valuedBy' => [
+                'type' => Type::string()
             ],
-            'driver' => [
-                'type' =>  Type::id(),
-            ],
+        
         ];
     }
 
@@ -59,21 +61,31 @@ class CreateRatingMutation extends Mutation
             throw new \Exception("Unauthorized", 403);
         }*/
 
-        $total = $args['assessment1'] + $args['assessment2'] + $args['assessment3'];
+        $total = ($args['assessment1'] + $args['assessment2'] + $args['assessment3'])/3;
 
 
         $data = [
-            'assessment1'  => $args['assessment1'],
-            'assessment2'  => $args['assessment2'],
-            'assessment3'  => $args['assessment3'],
-            'observations' => $args['observations'],
+            'assessment1'      => $args['assessment1'],
+            'assessment2'      => $args['assessment2'],
+            'assessment3'      => $args['assessment3'],
+            'observations'     => $args['observations'],
             'assessmentDriver' => $args['assessmentDriver'],
-            'total'        => $total,
-            'rider_id'     => $args['rider'],
-            'driver_id'    => $args['driver'],
+            'total'            => $total,
+            'valuedBy'         => $args['valuedBy'],
         ];
 
+
+
         $Rating = Rating::create($data);
+
+        $data1 = [
+            'ride_id'    => $args['ride'],
+            'rating_id'  => $Rating->id,            
+        ];
+
+
+
+        $RideHasRating = RideHasRating::create($data1);
 
 
         return $Rating;

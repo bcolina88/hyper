@@ -42,11 +42,8 @@ class RatingType extends BaseType
             'assessmentDriver' => [
                 'type' => Type::string()
             ],
-            'rider' => [
-                'type' =>  GraphQL::type('Rider')
-            ],
-            'driver' => [
-                'type' =>  GraphQL::type('Driver')
+            'valuedBy' => [
+                'type' => Type::string()
             ],
             'created_at' => [
                 'type' => Type::nonNull(Type::string())

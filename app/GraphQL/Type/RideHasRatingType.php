@@ -7,15 +7,14 @@ namespace App\GraphQL\Type;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as BaseType;
 use GraphQL;
-use App\Models\DriverHasCar;
-use App\Models\Driver;
-use App\Models\Car;
+use App\Models\Ride;
+use App\Models\Rating;
 
-class DriverHasCarImageType extends BaseType
+class RideHasRatingType extends BaseType
 {
     protected $attributes = [
-        'name' => 'DriverHasCarImage',
-        'description' => 'A driverHasCarImage'
+        'name' => 'RideHasRating',
+        'description' => 'A rideHasRating'
     ];
 
     public function fields()
@@ -24,17 +23,11 @@ class DriverHasCarImageType extends BaseType
             'id' => [
                 'type' => Type::nonNull(Type::int())
             ],
-            'car' => [
-                'type' => Type::nonNull(GraphQL::type('CarPhoto'))
-            ],
-            'driver' => [
-                'type' => Type::nonNull(GraphQL::type('Driver'))
+            'ride' => [
+                'type' => Type::nonNull(GraphQL::type('Ride'))
             ],
             'rating' => [
-                'type' => Type::listOf(GraphQL::type('Rating'))
-            ],
-            'totalRating' => [
-                'type' => Type::nonNull(Type::string())
+                'type' => Type::nonNull(GraphQL::type('Rating'))
             ],
             'created_at' => [
                 'type' => Type::nonNull(Type::string())

@@ -337,6 +337,7 @@ return [
         \App\GraphQL\Type\UploadCarType::class,
         \App\GraphQL\Type\CarPhotoType::class,
         \App\GraphQL\Type\DriverHasCarImageType::class,
+        \App\GraphQL\Type\RideHasRatingType::class,
 
 
         /*\App\GraphQL\Type\AuthType::class,

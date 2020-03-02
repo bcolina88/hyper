@@ -26,26 +26,19 @@ class CreateRidesTable extends Migration
             $table->string('dropoffTime')->nullable();
             $table->enum('pets', ['dog','cat','other'])->nullable();
             $table->integer('duration')->nullable();
-
-      
             $table->enum('luggage', ['small','medium','large'])->nullable();
             $table->string('pickupAddr')->nullable();
             $table->string('destAddr')->nullable();
             $table->text('note')->nullable();
             $table->integer('travellers')->default(1);
-
-            $table->enum('status', ['InProcess', 'Completed','Cancelled','Valued Rider','Valued Driver'])->nullable();
+            $table->enum('status', ['InProcess', 'Completed','Cancelled'])->nullable();
             $table->integer('payment')->default(0);
-
             $table->integer('distance')->nullable();
-
             $table->integer('rider_id')->unsigned();
             $table->integer('driver_id')->unsigned();
             $table->integer('car_id')->unsigned();
 
             $table->timestamps();
-
-
 
             $table->foreign('rider_id')->references('id')->on('riders')
             ->onUpdate('cascade')
