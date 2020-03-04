@@ -11,12 +11,11 @@ use App\Models\PaymentMethodHasBank;
 use App\Models\PaymentMethod;
 use App\Models\Bank;
 
-class PaymentMethodHasBankType extends BaseType
+class PaymentMethodHasBankDetailsType extends BaseType
 {
     protected $attributes = [
-        'name' => 'PaymentMethodHasBank',
-        'description' => 'A PaymentMethodHasBank',
-        'model'       => PaymentMethodHasBank::class,
+        'name' => 'PaymentMethodHasBankDetails',
+        'description' => 'A PaymentMethodHasBankDetails'
     ];
 
     public function fields()
@@ -25,11 +24,23 @@ class PaymentMethodHasBankType extends BaseType
             'id' => [
                 'type' => Type::nonNull(Type::int())
             ],
-            'paymentMethod' => [
-                'type' => Type::nonNull(GraphQL::type('PaymentMethod')),
+            'method' => [
+                'type' => Type::nonNull(Type::string())
             ],
-            'bankAccount' => [
-                'type' => Type::nonNull(GraphQL::type('BankAccount')),
+            'name' => [
+                'type' => Type::nonNull(Type::string())
+            ],
+            'rif' => [
+                'type' => Type::string()
+            ],
+            'phone' => [
+                'type' => Type::string()
+            ],
+            'active' => [
+                'type' => Type::boolean()
+            ],
+            'bank_account' => [
+                'type' => Type::listOf(GraphQL::type('BankAccount')),
             ],
             'created_at' => [
                 'type' => Type::nonNull(Type::string())

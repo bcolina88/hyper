@@ -19,7 +19,7 @@ class PaymentMethodDetailsQuery extends Query
 
     public function type()
     {
-        return GraphQL::type('PaymentMethodHasBank');
+        return GraphQL::type('PaymentMethodHasBankDetails');
     }
 
     public function args()

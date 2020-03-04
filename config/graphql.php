@@ -170,6 +170,8 @@ return [
                 'paymentMethodHasBanks'=> App\GraphQL\Query\PaymentMethodHasBanksQuery::class,
                 'paymentMethodHasBankByID'=> App\GraphQL\Query\PaymentMethodHasBankQuery::class,
 
+                'driverHasCars'=> App\GraphQL\Query\DriverHasCarsQuery::class,
+
 
 
             ],
@@ -338,6 +340,7 @@ return [
         \App\GraphQL\Type\CarPhotoType::class,
         \App\GraphQL\Type\DriverHasCarImageType::class,
         \App\GraphQL\Type\RideHasRatingType::class,
+        \App\GraphQL\Type\PaymentMethodHasBankDetailsType::class,
 
 
         /*\App\GraphQL\Type\AuthType::class,
