@@ -172,6 +172,7 @@ return [
 
                 'driverHasCars'=> App\GraphQL\Query\DriverHasCarsQuery::class,
                 'rides'=> App\GraphQL\Query\RidesQuery::class,
+                'ratingByID'=> App\GraphQL\Query\RatingQuery::class,
 
 
 
