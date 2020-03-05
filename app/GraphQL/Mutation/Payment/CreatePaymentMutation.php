@@ -49,7 +49,7 @@ class CreatePaymentMutation extends Mutation
             ],
             'type' => [
                 'type' => Type::nonNull(Type::string()),
-                'rules' => ['required']
+
             ],
             'bankAccount' => [
                 'type' => Type::nonNull(Type::int()),
@@ -57,11 +57,10 @@ class CreatePaymentMutation extends Mutation
             ],
             'createdBy' => [
                 'type' => Type::nonNull(Type::int()),
-                'rules' => ['required']
+  
             ],
             'updatedBy' => [
-                'type' => Type::nonNull(Type::int()),
-                'rules' => ['required']
+                'type' => Type::nonNull(Type::int())
             ],
         ];
     }

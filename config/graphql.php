@@ -171,6 +171,7 @@ return [
                 'paymentMethodHasBankByID'=> App\GraphQL\Query\PaymentMethodHasBankQuery::class,
 
                 'driverHasCars'=> App\GraphQL\Query\DriverHasCarsQuery::class,
+                'rides'=> App\GraphQL\Query\RidesQuery::class,
 
 
 
